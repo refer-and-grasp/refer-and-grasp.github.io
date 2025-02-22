@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refer and Grasp: Vision-Language Guided Continuous Dexterous Grasping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        header {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px 0;
+            /* border-bottom: 2px solid #ddd; */
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            margin-top: 5px;
+            font-size: 1.2em;
+        }
+
+        .button-container {
+            text-align: center;
+            /* margin-top: 20px; */
+        }
+
+        .button-container button {
+            padding: 15px 15px;
+            margin: 0 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            background-color: #4c5c69;
+            color: white;
+            border-radius: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .button-container button i {
+            font-size: 1.1em;
+        }
+
+        .button-container button:hover {
+            background-color: #394854;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            /* background-color: white; */
+            border-radius: 10px;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .abstract {
+            font-size: 1.3em;
+            text-align: justify;
+            /* text-justify: inter-word; */
+            hyphens: auto;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            text-indent: 1em;
+            /* word-break: break-word; */
+            line-height: 1.5;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .citation pre {
+            margin-top: 20px;
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: "Consolas", "Times New Roman", serif;
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Refer and Grasp: Vision-Language Guided<br>Continuous Dexterous Grasping</h1>
+        <br>
+        <p>Yayu Huang<sup>1,2</sup>, Dongxuan Fan<sup>1,2</sup>, Wen Qi<sup>1,2</sup>, Daheng Li<sup>1</sup>,
+            Yongkang Luo<sup>1</sup>, Qian Liu<sup>1</sup>, Peng Wang<sup>1,2,3</sup><br><br>
+            <span style="font-size: 0.9em;">
+                <sup>1</sup>Institute of Automation, Chinese Academy of Sciences, Beijing, China<br>
+                <sup>2</sup>School of Artificial Intelligence, University of Chinese Academy of Sciences, Beijing,
+                China<br>
+                <sup>3</sup>Centre for Artificial Intelligence and Robotics, Hong Kong Institute of Science and
+                Innovation, Chinese Academy of Sciences, Hong Kong</span>
+        </p>
+        <div style="height: 1em;"></div>
+        <div class="button-container">
+            <button onclick="window.location.href='paper-link.pdf'"><i class="fas fa-file-lines"></i>Paper</button>
+            <button onclick="window.location.href='https://github.com/Soappyooo/RefGrasp'"><i
+                    class="fa-solid fa-database"></i>Dataset</button>
+            <button onclick="window.location.href='video-link'"><i class="fas fa-film"></i>Video</button>
+        </div>
+        <div style="height: 1em;"></div>
+    </header>
+
+
+
+    <div class="content">
+        <h2>Abstract</h2>
+        <p class="abstract">Robotic grasping guided by natural language instructions faces challenges due to ambiguities
+            in object descriptions and the need to interpret complex spatial context. Existing visual grounding methods
+            often rely on datasets that fail to capture these complexities, particularly when object categories are
+            vague or undefined. To address these challenges, we make three key contributions. First, we present an
+            automated dataset generation engine for visual grounding in tabletop grasping, combining procedural scene
+            synthesis with template-based referring expression generation, requiring no manual labeling. Second, we
+            introduce the RefGrasp dataset, featuring diverse indoor environments and linguistically challenging
+            expressions for robotic grasping tasks. Third, we propose a visually grounded dexterous grasping framework
+            with continuous grasp generation, validated through extensive real-world robotic experiments. Our work
+            offers a novel approach for language-guided robotic manipulation, providing both a challenging dataset and
+            an effective grasping framework for real-world applications.</p>
+
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=j6kpqqt0S69YVFTv"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div class="image-gallery">
+            <h2>Dataset Generation Pipeline</h2>
+            <img src="scene_graph_pipeline.png" alt="Dataset Generation Pipeline">
+            <h2>Dataset Samples</h2>
+            <img src="dataset_example_x8.jpg" alt="Dataset Samples">
+            <h2>Visually Grounded Dexterous Grasping</h2>
+            <img src="framework.png" alt="Grasping Results">
+        </div>
+
+        <h2>Citation</h2>
+        <div class="citation">
+            <pre>
+@misc{citekey,
+      title={Title}, 
+      author={author},
+      year={2025},
+      eprint={xxx},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/xxx}, 
+}</pre>
+        </div>
+    </div>
+
+</body>
+
+</html>
