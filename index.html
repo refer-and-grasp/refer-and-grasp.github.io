@@ -51,12 +51,21 @@
             gap: 8px;
         }
 
+        .button-container .disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
         .button-container button i {
             font-size: 1.1em;
         }
 
         .button-container button:hover {
             background-color: #394854;
+        }
+
+        .button-container .disabled:hover {
+            background-color: #ccc;
         }
 
         .content {
@@ -121,11 +130,14 @@
         </p>
         <div style="height: 1em;"></div>
         <div class="button-container">
-            <button onclick="window.location.href='paper-link.pdf'"><i class="fas fa-file-lines"></i>Paper</button>
+            <button class="disabled" onclick="window.location.href='paper-link.pdf'" title="Available Soon"><i
+                    class="fas fa-file-lines"></i>Paper</button>
             <button onclick="window.location.href='https://github.com/Soappyooo/RefGrasp'">
                 <i class="fa-solid fa-database"></i>Dataset</button>
-            <button onclick="window.location.href='video-link'"><i class="fas fa-film"></i>Video</button>
-            <button onclick="window.location.href='repo-link'"><i class="fa-brands fa-github"></i>Model</button>
+            <button class="disabled" onclick="window.location.href='video-link'" title="Available Soon"><i
+                    class="fas fa-film"></i>Video</button>
+            <button class="disabled" onclick="window.location.href='repo-link'" title="Available Soon"><i
+                    class="fa-brands fa-github"></i>Model</button>
         </div>
         <div style="height: 1em;"></div>
     </header>
