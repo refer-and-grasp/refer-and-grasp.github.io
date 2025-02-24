@@ -73,28 +73,24 @@
             margin-bottom: 10px;
         }
 
-        .abstract {
-            font-size: 1.3em;
+        .abstract,
+        .main-content {
+            font-size: 1.3rem;
             text-align: justify;
             /* text-justify: inter-word; */
             hyphens: auto;
             -webkit-hyphens: auto;
             -ms-hyphens: auto;
-            text-indent: 1em;
+            text-indent: 1rem;
             /* word-break: break-word; */
             line-height: 1.5;
         }
 
-        .video-container iframe {
-            width: 100%;
-            height: 400px;
-            margin-top: 20px;
-        }
-
-        .image-gallery img {
-            width: 100%;
-            margin-top: 20px;
-            border-radius: 5px;
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+            /* gap: 20px; */
+            margin: 20px 0;
         }
 
         .citation pre {
@@ -104,6 +100,7 @@
             border-radius: 5px;
             font-family: "Consolas", "Times New Roman", serif;
             font-size: 1em;
+            line-height: 1.3;
         }
     </style>
 </head>
@@ -150,24 +147,130 @@
             an effective grasping framework for real-world applications.</p>
 
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=j6kpqqt0S69YVFTv"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_01-00_02_06.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_01_51-00_01_56.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
+        <div style="height: 1em;"></div>
 
-        <div class="image-gallery">
-            <h2>Dataset Generation Pipeline</h2>
-            <img src="scene_graph_pipeline.jpg" alt="Dataset Generation Pipeline">
-            <h2>Dataset Samples</h2>
-            <img src="dataset_example_x8.jpg" alt="Dataset Samples">
-            <h2>Visually Grounded Dexterous Grasping</h2>
-            <img src="framework.jpg" alt="Grasping Results">
+        <h2>Dataset Generation Pipeline</h2>
+        <p class="main-content">The dataset generation engine consists of a <b>scene graph generation process</b>, a
+            <b>referring expression generation method</b> and a <b>scene rendering pipeline</b>. For an empty scene, we
+            first procedurally generate its scene graph by randomly sampling nodes (objects) and edges (relationships
+            between objects). Subsequently, referring expressions are constructed based on the scene graph using a
+            variety of language templates. Next, object locations are determined according to the scene graph, with
+            random selection of surface types, materials for floors and walls, lighting conditions, etc. Finally, the
+            RGB-D images and segmentation masks are rendered using Blender's Cycles rendering engine.
+        </p>
+        <img src="./images/scene_graph_pipeline.jpg" alt="Dataset Generation Pipeline"
+            style="width: 100%; margin: 0px 0;">
+        <video style="width: 100%; margin: 20px 0;" autoplay loop muted playsinline>
+            <source src="./videos/dataset.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div style="height: 1em;"></div>
+
+        <h2>Dataset Samples</h2>
+        <p class="main-content">Figure below shows annotated examples from RefGrasp dataset. In the expressions, object
+            references are marked with <span style="color:#4591a6">blue</span>, attributes are marked with <span
+                style="color:#c15a51">red</span>,
+            locations are marked with <span style="color:#7f9c4a">green</span> and related
+            objects are marked with <span style="color:#c49d16">yellow</span>.</p>
+        <img src="./images/dataset_example_x8.jpg" alt="Dataset Samples" style="width: 100%; margin: 0px 0;">
+        <div style="height: 1em;"></div>
+
+        <h2>Visually Grounded Dexterous Grasping</h2>
+        <p class="main-content">The system is designed as a two-stage pipeline, with each stage involving a separate
+            network trained individually. <b>Stage I</b> focuses on perception and segmentation tasks. The input to
+            the network includes an RGB image, a depth image, and natural language instructions, and the output is the
+            segmentation mask of the target object. <b>Stage II</b> addresses the reasoning and decision-making
+            aspects of grasping. First, the depth image, segmentation mask, and robot's current state are fed into the
+            grasp generation network. The output is the grasp configuration, which includes a sequence of actions for
+            the robot to perform the grasp.</p>
+        <img src="./images/framework.jpg" alt="Framework" style="width: 70%; display: block; margin: 30px auto;">
+        <div style="height: 1em;"></div>
+
+        <h2>Experiment Demos</h2>
+        <div class="video-container">
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_01_46-00_01_50.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_01_51-00_01_56.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
+        <div class="video-container">
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_01_56-00_02_00.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_01-00_02_06.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_06-00_02_10.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_11-00_02_15.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_15-00_02_20.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_20-00_02_25.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_25-00_02_30.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_30-00_02_35.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_35-00_02_40.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_40-00_02_44.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-container">
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_44-00_02_49.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="49%" autoplay loop muted playsinline>
+                <source src="./videos/video 00_02_49-00_02_54.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div style="height: 1em;"></div>
 
         <h2>Citation</h2>
         <div class="citation">
-            <pre>
+            <!-- <pre>
 @misc{citekey,
       title={Title}, 
       author={author},
@@ -176,7 +279,8 @@
       archivePrefix={arXiv},
       primaryClass={cs.RO},
       url={https://arxiv.org/abs/xxx}, 
-}</pre>
+}</pre> -->
+            <pre>Available Soon</pre>
         </div>
     </div>
 
